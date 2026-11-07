@@ -5,7 +5,8 @@
 
 ## Identidade e publicação — 2026-11-07 (Claude Code)
 - Projeto renomeado para **Ukiyo 浮世**; pasta `~/ukiyo` (link `~/studio-linux`), widgets `org.ukiyo.*`. Ver `docs/mudancas.md`.
-- Repositório público preparado (README, instalação, licenças, imagens). Publicação no GitHub: ver a última entrada de `docs/mudancas.md`.
+- **Publicado:** https://github.com/Davimachados/ukiyo (público, `main`, release `v1.0.0`). Commits só quando o usuário pedir;
+  autor com e-mail noreply do GitHub (já configurado no repositório).
 
 **Última atualização:** 2026-11-07 (Codex; ícones v2 ativados).
 

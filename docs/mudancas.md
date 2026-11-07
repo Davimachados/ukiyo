@@ -672,3 +672,12 @@ com `kwriteconfig6 --notify --file kdeglobals --group Icons --key Theme washi-pi
   `externos-share.tar.gz`, `SHA256SUMS`).
 - **Desfazer:** extrair os tarballs do backup (projeto em `~`, externos em `~`), reinstalar os widgets antigos a partir
   de `externos.tar.gz` (`.local/share/plasma/plasmoids`) e restaurar o `appletsrc` com o plasmashell parado.
+
+## 2026-11-07 — Publicado no GitHub: github.com/Davimachados/ukiyo (v1.0.0)
+
+- Repositório **público** criado com `gh` (login do usuário). Histórico novo e limpo (7 commits por área + este),
+  autor `Davi <143721445+Davimachados@users.noreply.github.com>` (o e-mail pessoal não aparece). Tag e release `v1.0.0`,
+  tópicos, e *private vulnerability reporting* ativado.
+- Antes do envio: varredura de tokens, chaves, e-mail pessoal e caminhos `/home/<usuário>` em todo o histórico (0 achados).
+- O histórico git antigo (com o e-mail pessoal) ficou só no backup: `backups/2026-11-07-ukiyo-rebrand/git-antigo`.
+- Fluxo daqui em diante: commits só quando o usuário pedir; `git push` envia para `origin/main`.
