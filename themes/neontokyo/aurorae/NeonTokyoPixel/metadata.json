@@ -1,0 +1,15 @@
+{
+  "KPackageStructure": "KWin/Aurorae",
+  "KPlugin": {
+    "Id": "NeonTokyoPixel",
+    "Name": "Neon Tokyo Pixel",
+    "Description": "Decoração pixel cyberpunk do tema Neon Tokyo",
+    "Authors": [
+      {
+        "Name": "Davi"
+      }
+    ],
+    "License": "CC-BY-SA-4.0",
+    "Version": "1.0"
+  }
+}

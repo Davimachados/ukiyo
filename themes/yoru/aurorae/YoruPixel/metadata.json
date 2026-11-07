@@ -1,0 +1,15 @@
+{
+  "KPackageStructure": "KWin/Aurorae",
+  "KPlugin": {
+    "Id": "YoruPixel",
+    "Name": "Yoru Pixel",
+    "Description": "Decoração pixel do modo escuro Yoru (sem sombra, sem animação)",
+    "Authors": [
+      {
+        "Name": "Davi"
+      }
+    ],
+    "License": "CC-BY-SA-4.0",
+    "Version": "1.0"
+  }
+}

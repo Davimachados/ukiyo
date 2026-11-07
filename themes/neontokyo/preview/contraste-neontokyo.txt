@@ -1,0 +1,13 @@
+texto / janela             #E6F1FF / #0B0D17  16.96:1  AAA
+texto / campos             #E6F1FF / #080A12  17.31:1  AAA
+texto / botões             #E6F1FF / #151A2E  15.09:1  AAA
+secundário / janela        #8A9BC0 / #0B0D17   6.95:1  AA
+seleção (texto escuro)     #0B0D17 / #FF2E88   5.53:1  AA
+link ciano / campos        #00E5FF / #080A12  12.85:1  AAA
+visitado / campos          #C38BFF / #080A12   7.96:1  AAA
+erro                       #FF5C7A / #0B0D17   6.52:1  AA
+aviso                      #FFE600 / #0B0D17  15.28:1  AAA
+sucesso                    #39FF88 / #0B0D17  14.60:1  AAA
+foco (linha)               #00E5FF / #0B0D17  12.59:1  AAA
+dica                       #E6F1FF / #151A2E  15.09:1  AAA
+desabilitado               #636874 / #0B0D17   3.47:1  ≥3

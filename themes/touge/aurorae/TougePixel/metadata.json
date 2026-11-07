@@ -1,0 +1,15 @@
+{
+  "KPackageStructure": "KWin/Aurorae",
+  "KPlugin": {
+    "Id": "TougePixel",
+    "Name": "Touge Pixel",
+    "Description": "Decoração pixel racing do tema Touge",
+    "Authors": [
+      {
+        "Name": "Davi"
+      }
+    ],
+    "License": "CC-BY-SA-4.0",
+    "Version": "1.0"
+  }
+}

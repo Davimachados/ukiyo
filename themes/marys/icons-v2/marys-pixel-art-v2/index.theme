@@ -1,0 +1,13 @@
+[Icon Theme]
+Name=Marys — Pixel Art v2
+Comment=Aplicativos redesenhados em pixel art 48×48
+Inherits=marys-pixel
+FollowsColorScheme=true
+Directories=apps/scalable
+
+[apps/scalable]
+Size=48
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=Applications

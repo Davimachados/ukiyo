@@ -1,0 +1,13 @@
+texto / janela           #111111 / #F2F2F0  16.85:1  AAA
+texto / campos           #111111 / #FFFFFF  18.88:1  AAA
+texto / botões           #111111 / #E4E4E1  14.82:1  AAA
+secundário / janela      #555555 / #F2F2F0   6.65:1  AA
+seleção                  #FFFFFF / #D7141E   5.24:1  AA
+link / campos            #1F4FB0 / #FFFFFF   7.49:1  AAA
+visitado / campos        #6A3FA0 / #FFFFFF   7.42:1  AAA
+erro                     #C00018 / #F2F2F0   5.76:1  AA
+aviso                    #8A6A00 / #F2F2F0   4.52:1  AA
+sucesso                  #1E7A3A / #F2F2F0   4.80:1  AA
+foco (linha)             #D7141E / #F2F2F0   4.67:1  AA
+dica                     #F2F2F0 / #111111  16.85:1  AAA
+desabilitado             #767675 / #F2F2F0   4.06:1  ≥3
