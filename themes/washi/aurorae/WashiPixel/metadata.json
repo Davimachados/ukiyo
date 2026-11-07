@@ -1,0 +1,15 @@
+{
+  "KPackageStructure": "KWin/Aurorae",
+  "KPlugin": {
+    "Id": "WashiPixel",
+    "Name": "Washi Pixel",
+    "Description": "Decoração pixel do tema Washi (sem sombra, sem animação)",
+    "Authors": [
+      {
+        "Name": "Davi"
+      }
+    ],
+    "License": "CC-BY-SA-4.0",
+    "Version": "1.0"
+  }
+}

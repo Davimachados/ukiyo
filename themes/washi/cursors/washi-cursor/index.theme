@@ -1,0 +1,4 @@
+[Icon Theme]
+Name=Washi Cursor
+Comment=Cursor pixel do tema Washi (fallback: Breeze)
+Inherits=breeze_cursors

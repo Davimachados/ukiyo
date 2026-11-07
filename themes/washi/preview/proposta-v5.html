@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Proposta V5 — login e bloqueio Washi</title>
+<style>
+:root{--washi:#F2EBDD;--washi2:#E4D9C4;--sumi:#2B2A28;--torii:#C8102E;--sec:#5B5650}
+body{margin:0;background:var(--washi);color:var(--sumi);font:15px/1.55 "Noto Sans",sans-serif}
+main{max-width:1180px;margin:0 auto;padding:24px 18px 60px}
+h1,h2{font-family:"DotGothic16",monospace;font-weight:normal} h1{font-size:30px;margin:0 0 4px}
+h2{font-size:21px;margin:32px 0 10px;border-bottom:2px solid var(--sumi);padding-bottom:3px}
+.sub{color:var(--sec)} .aviso{border:2px solid var(--sumi);background:#fff8ec;padding:10px 14px;box-shadow:4px 4px 0 rgba(43,42,40,.25)}
+figure{margin:12px 0} figcaption{font-family:"DotGothic16",monospace;margin:0 0 6px}
+img{width:100%;border:2px solid var(--sumi);box-shadow:5px 5px 0 rgba(43,42,40,.3)}
+.tabela{overflow-x:auto} table{border-collapse:collapse;background:#fffaf1;font-size:14px;width:100%}
+th,td{border:2px solid var(--sumi);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--washi2);font-family:"DotGothic16",monospace;font-weight:normal}
+.tag{display:inline-block;font:13px "DotGothic16",monospace;padding:1px 7px;border:2px solid var(--sumi);white-space:nowrap}
+.ok{background:#dfe8d3}.lim{background:#f6e6bf}.ig{background:#dcd6ea}
+pre{background:#24221F;color:#EDE6D6;padding:10px 12px;overflow-x:auto;border:2px solid var(--sumi)} code{background:var(--washi2);padding:1px 5px}
+li{margin-bottom:5px}
+</style></head><body><main>
+<h1>V5 — login e bloqueio Washi</h1>
+<p class="sub">Proposta. Nada foi aplicado e o SDDM não foi reiniciado.</p>
+<div class="aviso"><b>As imagens são pré-visualizações reais, não maquetes.</b> O login foi renderizado pelo próprio greeter do SDDM (<code>sddm-greeter-qt6 --test-mode</code>),
+e o bloqueio pelo próprio greeter do Plasma (<code>kscreenlocker_greet --testing</code>), com uma configuração temporária.
+No modo de teste do login, os botões de energia aparecem apagados porque ali não podem ser usados, e o usuário não vem selecionado (nome a 50%).
+No login real os dois aparecem normais.</div>
+
+<h2>Login (SDDM) — tema "washi"</h2>
+<figure><figcaption>Pré-visualização real (revisão b) · fundo nítido + painel Washi</figcaption><img src="v5-login-preview-b.png" alt="prévia do login, revisão b"></figure>
+<div class="aviso"><b>Como ler esta prévia.</b> Ela foi capturada sem foco e sem interação, para não desviar o seu teclado. Por isso o Breeze já estava
+<b>escondendo o formulário</b> (cerca de 55% de opacidade): o esmaecido geral <b>não</b> é falta de contraste.
+<b>Desativados pelo modo de teste:</b> Suspender, Reiniciar e Desligar (o greeter de teste não pode usá-los); "Outros…" está ativo.
+<b>Contraste calculado, não medido na tela:</b> texto marfim sobre o painel ≈ 12:1; campo de senha (texto sumi sobre washi) 12,7:1.
+Para ver o formulário 100% visível, rode <code>themes/washi/scripts/previa-login.sh</code> e mexa o mouse sobre a janela.
+<b>O login real só fica validado depois de aplicar e testar num logout de verdade.</b></div>
+<figure><figcaption>Prévia anterior (revisão a) · com o desfoque do Breeze</figcaption><img src="v5-login-preview.png" alt="prévia do login, revisão a"></figure>
+<div class="tabela"><table>
+<tr><th>Elemento</th><th>Proposta</th><th>Status</th></tr>
+<tr><td>Relógio e data</td><td>DotGothic16 em 64 e 32 px (múltiplos de 16, nítidos)</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Fundo</td><td>Papel de parede Washi v2</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Logo do rodapé</td><td>Torii pixel no lugar do logo Debian</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Cores do formulário</td><td>Esquema Washi copiado para o usuário <code>sddm</code> (o mesmo que o botão "Aplicar configurações do Plasma" faz)</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Cursor</td><td>washi-cursor de 32 px instalado para o sistema</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Campo de senha, usuário, seleção de sessão, teclado, mensagem "Falha no login", botões Suspender, Reiniciar e Desligar</td><td>Iguais ao Breeze: <code>Login.qml</code>, <code>SessionButton.qml</code> e <code>KeyboardButton.qml</code> são o código original, para preservar a legibilidade e as funções</td><td><span class="tag ig">inalterado</span></td></tr>
+<tr><td>Fundo com o formulário aberto</td><td>Sem desfoque e sem ajuste de cor (<code>WashiFader.qml</code>); a leitura fica garantida por um painel sumi com borda washi de 2 px e sombra dura atrás do formulário (<code>Main.qml</code>, fora do layout do Breeze)</td><td><span class="tag ok">muda</span></td></tr>
+</table></div>
+
+<h2>Bloqueio de tela</h2>
+<figure><figcaption>Pré-visualização real · antes de mexer o mouse</figcaption><img src="v5-bloqueio-preview.png" alt="prévia do bloqueio"></figure>
+<div class="tabela"><table>
+<tr><th>Elemento</th><th>Proposta</th><th>Status</th></tr>
+<tr><td>Fundo</td><td>Papel de parede Washi v2 (pacote <code>Washi-v2</code>)</td><td><span class="tag ok">muda</span></td></tr>
+<tr><td>Cores do campo de senha e dos botões</td><td>Já seguem o esquema Washi</td><td><span class="tag ig">já aplicado</span></td></tr>
+<tr><td>Relógio em fonte pixel</td><td>O visual do bloqueio pertence ao shell do Plasma 6.3. Mudar a fonte exigiria sobrepor o shell inteiro, com risco de quebrar o desbloqueio. O relógio fica na fonte do sistema (Noto Sans), legível</td><td><span class="tag lim">limitação</span></td></tr>
+</table></div>
+
+<h2>Aplicação (quando você aprovar)</h2>
+<pre># 1) bloqueio — usuário comum, efeito imediato (teste: Meta+L)
+~/ukiyo/themes/washi/scripts/aplicar-v5-bloqueio.sh
+
+# 2) login — precisa de sudo; vale no próximo logout/boot (não reinicia o SDDM)
+sudo ~/ukiyo/themes/washi/scripts/aplicar-v5-login.sh</pre>
+<p>O passo 2 instala <code>/usr/share/sddm/themes/washi</code>, <code>/usr/share/icons/washi-cursor</code>, <code>/etc/sddm.conf.d/10-washi.conf</code> e
+<code>/var/lib/sddm/.config/kdeglobals</code>. Antes de instalar, faz backup de tudo isso em <code>backups/&lt;data&gt;-washi-v5-login/</code>.</p>
+
+<h2>Restauração</h2>
+<pre>~/ukiyo/themes/washi/scripts/restaurar-v5-bloqueio.sh
+sudo ~/ukiyo/themes/washi/scripts/restaurar-v5-login.sh</pre>
+<p><b>Emergência</b>, se a tela de login não aparecer ou não aceitar a senha:</p>
+<ol>
+<li><code>Ctrl+Alt+F3</code> e login em modo texto com seu usuário;</li>
+<li><code>sudo rm /etc/sddm.conf.d/10-washi.conf</code>, que volta ao tema padrão do Debian;</li>
+<li><code>sudo systemctl restart sddm</code>, ou reinicie o computador.</li>
+</ol>
+<p>Se o tema configurado faltar, o SDDM cai no tema padrão; por isso remover esse único arquivo resolve.</p>
+</main></body></html>

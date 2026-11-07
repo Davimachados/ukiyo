@@ -1,0 +1,14 @@
+[Icon Theme]
+Name=Washi Pixel — Refino
+Comment=Proposta pixel 24×24 para os aplicativos do dock
+Inherits=washi-pixel
+FollowsColorScheme=true
+Example=folder
+Directories=apps/scalable
+
+[apps/scalable]
+Size=24
+MinSize=16
+MaxSize=256
+Type=Scalable
+Context=Applications

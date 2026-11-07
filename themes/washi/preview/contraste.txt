@@ -1,0 +1,16 @@
+Washi texto sumi / fundo washi                      12.09:1  AAA
+Washi texto sumi / superfície washi2                10.26:1  AAA
+Washi texto secundário #5B5650 / washi               6.12:1  AA
+Washi washi / seleção torii                          4.96:1  AA
+Washi link musgo escuro #4F6B3A / washi              5.06:1  AA
+Washi musgo #6B8E4E / washi (só ícones/foco)         3.16:1  AA-grande
+Washi ouro #D9A441 / washi (só decorativo)           1.90:1  FALHA
+Washi aviso #8A5A00 / washi                          5.00:1  AA
+Sumi  texto #EDE6D6 / fundo #24221F                 12.76:1  AAA
+Sumi  texto / superfície #302D29                    11.02:1  AAA
+Sumi  secundário #9C958A / fundo                     5.35:1  AA
+Sumi  texto washi / seleção #E0475B                  3.23:1  AA-grande
+Sumi  foco musgo #8FB36F / fundo                     6.68:1  AA
+Sumi  ouro #E3B65A / fundo                           8.39:1  AAA
+Sumi  azul #7FB0DB / fundo                           6.90:1  AA
+Sumi  texto washi / seleção #B3263B (adotada)          5.19:1  AA

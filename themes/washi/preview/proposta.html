@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Proposta — Tema Washi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+<style>
+  :root{--washi:#F2EBDD;--washi2:#E4D9C4;--washi3:#D6C8AE;--sumi:#2B2A28;--torii:#C8102E;--musgo:#4F6B3A;--sec:#5B5650;
+        --pixel:"DotGothic16",monospace;--ui:"Noto Sans",sans-serif}
+  body{margin:0;background:var(--washi);color:var(--sumi);font:15px/1.55 var(--ui)}
+  main{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+  h1,h2{font-family:var(--pixel);font-weight:normal;letter-spacing:.5px}
+  h1{font-size:34px;margin:0 0 4px}
+  h2{font-size:22px;margin:38px 0 10px;border-bottom:2px solid var(--sumi);padding-bottom:4px}
+  .sub{color:var(--sec);margin:0 0 18px}
+  .aviso{border:2px solid var(--sumi);background:#fff8ec;padding:10px 14px;box-shadow:4px 4px 0 rgba(43,42,40,.25)}
+  figure{margin:16px 0}
+  figure img{width:100%;border:2px solid var(--sumi);box-shadow:6px 6px 0 rgba(43,42,40,.3);image-rendering:auto}
+  figcaption{font-size:13px;color:var(--sec);margin-top:8px}
+  .pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .sw{border:2px solid var(--sumi);font-size:13px}
+  .sw i{display:block;height:54px;border-bottom:2px solid var(--sumi)}
+  .sw div{padding:6px 8px;background:#fffaf1}
+  .sw b{font-family:var(--pixel);font-weight:normal;font-size:14px}
+  .tabela{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14px;background:#fffaf1}
+  th,td{border:2px solid var(--sumi);padding:7px 9px;vertical-align:top;text-align:left}
+  th{background:var(--washi2);font-family:var(--pixel);font-weight:normal;font-size:15px}
+  .tag{display:inline-block;font:13px var(--pixel);padding:1px 7px;border:2px solid var(--sumi);white-space:nowrap}
+  .ok{background:#dfe8d3}.parc{background:#f6e6bf}.conc{background:#f3d3d6}.dep{background:#dcd6ea}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:800px){.duas{grid-template-columns:1fr}}
+  code{background:var(--washi2);padding:1px 5px}
+  ol li{margin-bottom:6px}
+</style>
+</head>
+<body><main>
+<h1>Washi · 和紙 — proposta visual</h1>
+<p class="sub">Japão tradicional · entardecer dourado · barra fina no topo + dock · DotGothic16 decorativa · variante Sumi para produção</p>
+
+<div class="aviso"><b>Isto é uma prévia (conceito).</b> A imagem abaixo é uma maquete HTML renderizada no Firefox, não o Plasma real.
+O papel de parede e os ícones já são os arquivos finais gerados pelos scripts do projeto. Os demais elementos mostram a intenção,
+e a tabela "O que será implementado" diz o que o KDE consegue reproduzir de forma nativa, o que fica aproximado e o que fica só como conceito.</div>
+
+<figure><img src="maquete-desktop.png" alt="Maquete do desktop Washi">
+<figcaption>Maquete 1920×1080. Janela de arquivos em Washi (claro); terminal em Sumi (escuro, variante de produção).
+Dock com Arquivos, Navegador e Terminal | OBS, Kdenlive e Audacity | Configurações e Mostrar área de trabalho. O traço vermelho marca app aberto.</figcaption></figure>
+
+<h2>Paleta</h2>
+<div class="duas">
+<div><h3 style="font:18px var(--pixel)">Washi (sistema)</h3>
+<div class="pal">
+ <div class="sw"><i style="background:#F2EBDD"></i><div><b>washi</b><br>#F2EBDD · fundo</div></div>
+ <div class="sw"><i style="background:#E4D9C4"></i><div><b>washi 2</b><br>#E4D9C4 · superfícies</div></div>
+ <div class="sw"><i style="background:#2B2A28"></i><div><b>sumi</b><br>#2B2A28 · texto 12,1:1</div></div>
+ <div class="sw"><i style="background:#C8102E"></i><div><b>torii</b><br>#C8102E · seleção 5,0:1</div></div>
+ <div class="sw"><i style="background:#4F6B3A"></i><div><b>musgo</b><br>#4F6B3A · links 5,1:1</div></div>
+ <div class="sw"><i style="background:#D9A441"></i><div><b>ouro</b><br>#D9A441 · só decoração</div></div>
+</div></div>
+<div><h3 style="font:18px var(--pixel)">Sumi (OBS, Kdenlive, Audacity, Konsole)</h3>
+<div class="pal">
+ <div class="sw"><i style="background:#24221F"></i><div><b>sumi</b><br>#24221F · fundo</div></div>
+ <div class="sw"><i style="background:#302D29"></i><div><b>sumi 2</b><br>#302D29 · superfícies</div></div>
+ <div class="sw"><i style="background:#EDE6D6"></i><div><b>washi</b><br>#EDE6D6 · texto 12,8:1</div></div>
+ <div class="sw"><i style="background:#B3263B"></i><div><b>torii</b><br>#B3263B · seleção 5,2:1</div></div>
+ <div class="sw"><i style="background:#8FB36F"></i><div><b>musgo</b><br>#8FB36F · foco 6,7:1</div></div>
+ <div class="sw"><i style="background:#E3B65A"></i><div><b>ouro</b><br>#E3B65A · avisos 8,4:1</div></div>
+</div></div>
+</div>
+<p>Contraste calculado pelo método WCAG (arquivo <code>preview/contraste.txt</code>): texto principal ≥ 12:1 (AAA) nas duas variantes; seleção e links ≥ 4,5:1 (AA).
+O ouro claro não passa como texto sobre washi e por isso fica só em ícones e decoração.</p>
+
+<h2>Tipografia</h2>
+<table>
+<tr><th>Uso</th><th>Fonte</th><th>Tamanho</th></tr>
+<tr><td>Relógio, rótulo スタジオ, títulos de janela, nomes das áreas de trabalho (一 二 三 四)</td><td style="font-family:var(--pixel);font-size:17px">DotGothic16 — 20:32 金曜日</td><td>16 px (nativo da fonte; fica nítido)</td></tr>
+<tr><td>Interface, menus, Dolphin, diálogos, textos longos</td><td>Noto Sans + Noto Sans CJK JP (já instaladas)</td><td>10 pt (padrão atual)</td></tr>
+<tr><td>Terminal, código, legendas técnicas</td><td style="font-family:'DejaVu Sans Mono',monospace">DejaVu Sans Mono (atual)</td><td>10–11 pt</td></tr>
+</table>
+
+<h2>O que será implementado</h2>
+<p><span class="tag ok">nativo</span> recurso do próprio KDE e Plasma 6.3 &nbsp; <span class="tag parc">aproximado</span> fica parecido com a maquete, sem ser idêntico &nbsp;
+<span class="tag conc">só conceito</span> não será feito, ou só com custo alto &nbsp; <span class="tag dep">depois</span> fica para outra etapa</p>
+<div class="tabela"><table>
+<tr><th>Elemento</th><th>Como</th><th>Status</th></tr>
+<tr><td>Papel de parede</td><td>PNG 1920×1080 gerado por <code>tools/gerar-papel-de-parede.py</code>, estático</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Cores do sistema</td><td>Esquemas de cores KDE <code>Washi.colors</code> e <code>Sumi.colors</code>; o estilo Plasma Breeze passa a seguir o esquema (painéis na cor washi)</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Barra superior de 30 px</td><td>Painel Plasma no topo: lançador (ícone torii) + rótulo スタジオ, menu global, áreas de trabalho, bandeja e relógio em DotGothic16</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Menu global (Arquivo, Editar…) na barra</td><td>Widget "Menu global": funciona nos apps KDE/Qt (Kdenlive, Dolphin, Konsole); Firefox e alguns apps mantêm o menu na própria janela</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>Áreas de trabalho 一 二 三 四</td><td>Widget de áreas de trabalho mostrando o nome de cada uma</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Dock inferior centralizada</td><td>2º painel, flutuante, centralizado e do tamanho do conteúdo, com lançadores fixos e indicador de app aberto</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Cantos "em degrau" e sombra dura de 1 pixel na dock e na barra</td><td>Exige um estilo Plasma próprio (SVGs de fundo dos painéis). Planejado para depois que o resto estiver validado</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>Decoração de janelas (botões quadrados, × vermelho)</td><td>Tema Aurorae próprio em SVG (motor nativo do KWin). Alternativa mais leve: Breeze com as cores Washi</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Sombra de janela dura e deslocada</td><td>O KWin desenha sombras suaves; dá para encurtar e escurecer, mas não para deixar idêntica à maquete</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>Títulos de janela em DotGothic16</td><td>Fonte do título de janela nas configurações de fontes</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Ícones pixel</td><td>Tema de ícones <code>washi-pixel</code>, herdado do Breeze: ícones próprios para os apps da dock, pastas e lançador; o resto continua Breeze</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>Todos os ícones do sistema em pixel art</td><td>São milhares de ícones; não é realista</td><td><span class="tag conc">só conceito</span></td></tr>
+<tr><td>Ícones da bandeja em pixel</td><td>Continuam os simbólicos do Breeze (já são monocromáticos e combinam)</td><td><span class="tag conc">só conceito</span></td></tr>
+<tr><td>Cursor pixel</td><td>Tema Xcursor próprio (seta, mão, texto, espera), compilado com <code>xcursorgen</code> (pacote <code>x11-apps</code>, a confirmar)</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Terminal Sumi</td><td>Perfil e esquema de cores do Konsole</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Kdenlive em Sumi</td><td>Menu Configurações → Tema de cores do próprio Kdenlive</td><td><span class="tag ok">nativo</span></td></tr>
+<tr><td>Audacity</td><td>Tema "Escuro" embutido. Cores Washi exatas exigiriam editar o tema interno</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>OBS em Sumi</td><td>Tema <code>.obt</code> próprio, aplicado só se você autorizar, para preservar a configuração do OBS</td><td><span class="tag parc">aproximado</span></td></tr>
+<tr><td>Títulos da barra lateral do Dolphin em fonte pixel</td><td>O Dolphin usa a fonte do sistema; mantemos Noto Sans por legibilidade</td><td><span class="tag conc">só conceito</span></td></tr>
+<tr><td>Login (SDDM) e bloqueio de tela</td><td>Depois de validar a sessão; o SDDM exige sudo</td><td><span class="tag dep">depois</span></td></tr>
+</table></div>
+
+<h2>Desempenho</h2>
+<ul>
+<li>Nada animado: papel de parede estático, sem efeitos contínuos, sem desfoque (blur) atrás dos painéis.</li>
+<li>Animações do KWin mais curtas (fator 0,5) e efeitos pesados (cubo, janelas gelatinosas) desligados.</li>
+<li>O tema não altera rede, áudio, drivers nem a configuração do OBS.</li>
+</ul>
+
+<h2>Etapas de aplicação</h2>
+<ol>
+<li><b>V1 · Desktop:</b> instalar <code>fonts-dotgothic16</code> (sudo, feito por você), aplicar papel de parede, esquema Washi, barra superior + dock e efeitos leves. Captura de tela e validação.</li>
+<li><b>V2 · Janelas:</b> decoração Aurorae "Washi Pixel" e fonte dos títulos.</li>
+<li><b>V3 · Ícones e cursor.</b></li>
+<li><b>V4 · Produção:</b> Konsole, Kdenlive e Audacity em Sumi; tema do OBS só com sua autorização.</li>
+<li><b>V5 · Login e bloqueio</b>, depois da sessão validada.</li>
+</ol>
+<p>Cada etapa tem o seu script de aplicação e o seu script de restauração em <code>~/ukiyo/themes/washi/</code>, e o backup completo do estado original já está em
+<code>backups/2026-11-06-etapa3-visual/</code>.</p>
+</main></body></html>

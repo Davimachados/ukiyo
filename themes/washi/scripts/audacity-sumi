@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Abre o Audacity com a parte GTK escura (Breeze-Dark), SEM mudar o tema global (Washi).
+#
+# Como funciona: o GTK lê ~/.config/gtk-3.0/gtk.css, que importa as cores Washi (claras) geradas pelo Plasma.
+# Este lançador cria uma pasta "sombra" usada como XDG_CONFIG_HOME só para o Audacity: tudo de ~/.config
+# aparece ali por link simbólico (inclusive ~/.config/audacity, pulse, dconf, user-dirs), exceto gtk-3.0,
+# que é uma cópia escura sem o colors.css. Nada em ~/.config é alterado.
+# Instalado por scripts/aplicar-v4-producao.sh; removido por scripts/restaurar-v4-producao.sh.
+set -euo pipefail
+REAL="$HOME/.config"
+SOMBRA="$HOME/.local/share/ukiyo/audacity-xdg"
+mkdir -p "$SOMBRA/gtk-3.0"
+
+# espelha ~/.config (exceto gtk-3.0) e remove links que ficaram órfãos
+shopt -s dotglob nullglob
+for e in "$REAL"/*; do
+  n=$(basename "$e"); [ "$n" = gtk-3.0 ] && continue
+  [ -e "$SOMBRA/$n" ] || [ -L "$SOMBRA/$n" ] || ln -s "$e" "$SOMBRA/$n"
+done
+for l in "$SOMBRA"/*; do [ -L "$l" ] && [ ! -e "$l" ] && rm -f "$l"; done
+shopt -u dotglob nullglob
+
+# gtk-3.0 escuro: mesmas preferências (cursor, ícones, fonte), tema Breeze-Dark e sem colors.css
+if [ -f "$REAL/gtk-3.0/settings.ini" ]; then
+  sed -e 's/^gtk-theme-name=.*/gtk-theme-name=Breeze-Dark/' \
+      -e 's/^gtk-application-prefer-dark-theme=.*/gtk-application-prefer-dark-theme=true/' \
+      "$REAL/gtk-3.0/settings.ini" > "$SOMBRA/gtk-3.0/settings.ini"
+fi
+[ -e "$REAL/gtk-3.0/bookmarks" ] && ln -sfn "$REAL/gtk-3.0/bookmarks" "$SOMBRA/gtk-3.0/bookmarks"
+rm -f "$SOMBRA/gtk-3.0/gtk.css" "$SOMBRA/gtk-3.0/colors.css"
+
+exec env XDG_CONFIG_HOME="$SOMBRA" GTK_THEME=Breeze-Dark GDK_BACKEND=x11 audacity "$@"

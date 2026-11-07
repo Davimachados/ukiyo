@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Washi — papel de parede v1 × v2</title>
+<style>
+  :root{--washi:#F2EBDD;--washi2:#E4D9C4;--sumi:#2B2A28;--torii:#C8102E;--sec:#5B5650}
+  body{margin:0;background:var(--washi);color:var(--sumi);font:15px/1.5 "Noto Sans",sans-serif}
+  main{max-width:1500px;margin:0 auto;padding:22px 18px 50px}
+  h1,h2{font-family:"DotGothic16",monospace;font-weight:normal}
+  h1{font-size:30px;margin:0 0 6px} h2{font-size:20px;margin:30px 0 8px;border-bottom:2px solid var(--sumi)}
+  p.sub{color:var(--sec);margin:0 0 14px}
+  .par{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:900px){.par{grid-template-columns:1fr}}
+  figure{margin:0} figcaption{font-family:"DotGothic16",monospace;font-size:16px;margin:6px 0}
+  img{display:block;width:100%;image-rendering:pixelated;border:2px solid var(--sumi)}
+  .zoom{width:100%;aspect-ratio:2/1;border:2px solid var(--sumi);background-repeat:no-repeat;image-rendering:pixelated}
+  .ceu{background-size:400% auto;background-position:62% 38%}
+  .agua{background-size:400% auto;background-position:68% 78%}
+  .v1{background-image:url(../wallpaper/entardecer-v1-1920x1080.png)}
+  .v2{background-image:url(../wallpaper/entardecer-v2-1920x1080.png)}
+  button{font:16px "DotGothic16",monospace;background:var(--torii);color:var(--washi);border:2px solid var(--sumi);padding:6px 14px;cursor:pointer;box-shadow:3px 3px 0 rgba(43,42,40,.35)}
+  .tabela{overflow-x:auto} table{border-collapse:collapse;background:#fffaf1}
+  td,th{border:2px solid var(--sumi);padding:6px 10px;text-align:left}
+  th{background:var(--washi2);font-family:"DotGothic16",monospace;font-weight:normal}
+</style>
+</head>
+<body><main>
+<h1>Papel de parede — v1 × v2</h1>
+<p class="sub">Mesma composição. Na v2 mudam só o céu, o halo do sol, a água e o reflexo do sol. O papel de parede instalado continua sendo a v1 até você decidir.</p>
+
+<h2>Lado a lado</h2>
+<div class="par">
+  <figure><figcaption>v1 · atual (instalada)</figcaption><img src="../wallpaper/entardecer-v1-1920x1080.png" alt="v1"></figure>
+  <figure><figcaption>v2 · proposta</figcaption><img src="../wallpaper/entardecer-v2-1920x1080.png" alt="v2"></figure>
+</div>
+
+<h2>Alternar na mesma posição</h2>
+<p><button id="alt" type="button">Mostrando: v2 — clique para ver a v1</button></p>
+<img id="img-alt" src="../wallpaper/entardecer-v2-1920x1080.png" alt="alternância v1/v2">
+
+<h2>Ampliação 4× — céu perto do sol</h2>
+<div class="par">
+  <figure><figcaption>v1</figcaption><div class="zoom ceu v1"></div></figure>
+  <figure><figcaption>v2</figcaption><div class="zoom ceu v2"></div></figure>
+</div>
+
+<h2>Ampliação 4× — água e reflexo do sol</h2>
+<div class="par">
+  <figure><figcaption>v1</figcaption><div class="zoom agua v1"></div></figure>
+  <figure><figcaption>v2</figcaption><div class="zoom agua v2"></div></figure>
+</div>
+
+<h2>O que mudou (medido na resolução nativa 480×270)</h2>
+<div class="tabela"><table>
+<tr><th>Área</th><th>v1</th><th>v2</th></tr>
+<tr><td>Céu</td><td>pontilhado em toda a altura</td><td>faixas lisas, pontilhado só nos últimos 22% de cada faixa · trocas de cor entre pixels vizinhos: 32.396 → 11.010 (−66%)</td></tr>
+<tr><td>Halo do sol</td><td>anel pontilhado</td><td>anel sólido, 3 px</td></tr>
+<tr><td>Água</td><td>traços curtos em grade regular a cada 5 linhas</td><td>poucos traços esparsos, de comprimentos variados · trocas: 9.812 → 4.117 (−58%)</td></tr>
+<tr><td>Reflexo do sol</td><td>triângulo de pontos</td><td>faixas horizontais interrompidas, larguras variadas, esmaecendo até a margem</td></tr>
+<tr><td>Sakura, Fuji, torii, margem</td><td colspan="2">idênticos: 0 pixels diferentes</td></tr>
+</table></div>
+</main>
+<script>
+  const b = document.getElementById('alt'), im = document.getElementById('img-alt');
+  let v2 = true;
+  b.addEventListener('click', () => {
+    v2 = !v2;
+    im.src = v2 ? '../wallpaper/entardecer-v2-1920x1080.png' : '../wallpaper/entardecer-v1-1920x1080.png';
+    b.textContent = v2 ? 'Mostrando: v2 — clique para ver a v1' : 'Mostrando: v1 — clique para ver a v2';
+  });
+</script>
+</body></html>

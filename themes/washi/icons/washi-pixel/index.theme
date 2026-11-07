@@ -1,0 +1,23 @@
+[Icon Theme]
+Name=Washi Pixel
+Comment=Ícones pixel 16×16 do tema Washi (fallback: Breeze)
+Inherits=breeze,hicolor
+# os ícones herdados do Breeze têm estilo ColorScheme-Text: sem isto ficam escuros em apps com esquema Sumi
+FollowsColorScheme=true
+Example=folder
+DisplayDepth=32
+Directories=apps/scalable,places/scalable
+
+[apps/scalable]
+Size=16
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Applications
+
+[places/scalable]
+Size=16
+MinSize=8
+MaxSize=512
+Type=Scalable
+Context=Places

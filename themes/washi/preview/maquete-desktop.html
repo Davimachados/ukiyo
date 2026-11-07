@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Maquete — Washi (CONCEITO)</title>
+<!-- A fonte DotGothic16 será instalada pelo pacote Debian fonts-dotgothic16; aqui, só na prévia, tenta a local e depois a web. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+<style>
+  :root{
+    --washi:#F2EBDD; --washi2:#E4D9C4; --washi3:#D6C8AE; --sumi:#2B2A28; --torii:#C8102E; --torii2:#8E0B22;
+    --musgo:#6B8E4E; --ouro:#D9A441;
+    --s-bg:#24221F; --s-bg2:#302D29; --s-fg:#EDE6D6; --s-sel:#E0475B; --s-foco:#8FB36F; --s-ouro:#E3B65A;
+    --pixel:"DotGothic16","Misaki Gothic",monospace;
+    --ui:"Noto Sans","Noto Sans CJK JP",sans-serif;
+    --mono:"DejaVu Sans Mono","Noto Sans Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+  .desk{position:relative;width:1920px;height:1080px;background:url(../wallpaper/entardecer-1920x1080.png) 0 0/1920px 1080px;image-rendering:pixelated;font-family:var(--ui);color:var(--sumi)}
+  img.px{image-rendering:pixelated}
+
+  /* ---- barra superior (28 px) ---- */
+  .topo{position:absolute;inset:0 0 auto 0;height:30px;background:var(--washi);border-bottom:2px solid var(--sumi);
+        box-shadow:0 2px 0 rgba(43,42,40,.25);display:flex;align-items:center;gap:14px;padding:0 10px;font-size:13px}
+  .topo .marca{display:flex;align-items:center;gap:8px;font-family:var(--pixel);font-size:16px}
+  .topo .sep{width:2px;height:16px;background:var(--washi3)}
+  .topo .app{font-weight:600}
+  .topo .menu span{margin-right:14px}
+  .topo .desktops{display:flex;gap:4px;margin-left:auto;margin-right:auto;font-family:var(--pixel);font-size:14px}
+  .topo .desktops b{display:inline-block;width:24px;height:20px;line-height:20px;text-align:center;border:2px solid var(--sumi);font-weight:normal;background:var(--washi2)}
+  .topo .desktops b.on{background:var(--torii);color:var(--washi)}
+  .topo .tray{display:flex;align-items:center;gap:12px}
+  .topo .relogio{font-family:var(--pixel);font-size:16px;display:flex;gap:8px;align-items:baseline}
+  .topo .relogio small{font-size:13px;color:#5b5650}
+
+  /* ---- janelas (decoração "Washi Pixel") ---- */
+  .win{position:absolute;border:2px solid var(--sumi);box-shadow:6px 6px 0 rgba(43,42,40,.35)}
+  .win .tb{height:30px;display:flex;align-items:center;padding:0 6px 0 10px;gap:8px;border-bottom:2px solid var(--sumi);font-family:var(--pixel);font-size:16px}
+  .win .tb .t{flex:1;text-align:center}
+  .btn{width:18px;height:18px;border:2px solid currentColor;display:inline-grid;place-items:center;font:bold 11px/1 var(--mono)}
+  .btn.x{background:var(--torii);color:var(--washi);border-color:var(--sumi)}
+  .w-washi{background:var(--washi);color:var(--sumi)}
+  .w-washi .tb{background:var(--washi2)}
+  .w-sumi{background:var(--s-bg);color:var(--s-fg);border-color:#11100e}
+  .w-sumi .tb{background:#1B1A17;color:var(--s-fg);border-color:#11100e}
+  .w-sumi .btn.x{border-color:var(--s-fg)}
+
+  /* dolphin */
+  .dol{left:150px;top:96px;width:800px;height:500px}
+  .dol .corpo{display:flex;height:calc(100% - 30px)}
+  .dol .lado{width:200px;background:var(--washi2);border-right:2px solid var(--washi3);padding:12px 0;font-size:14px}
+  .dol .lado h4{margin:6px 14px 6px;font:12px var(--pixel);color:#6a645b;letter-spacing:1px}
+  .dol .lado div{padding:6px 14px;display:flex;gap:8px;align-items:center}
+  .dol .lado div.sel{background:var(--torii);color:var(--washi)}
+  .dol .main{flex:1;padding:14px 18px;font-size:14px}
+  .dol .cam{font-size:13px;color:#5b5650;margin-bottom:16px;border:2px solid var(--washi3);padding:4px 8px;background:#fff8ec}
+  .dol .grade{display:grid;grid-template-columns:repeat(4,120px);gap:18px}
+  .dol .grade div{text-align:center;padding:8px 4px}
+  .dol .grade div.sel{outline:2px solid var(--torii);background:#f6d9d9}
+  .dol .status{position:absolute;bottom:0;left:200px;right:0;height:26px;border-top:2px solid var(--washi3);font-size:12px;padding:4px 14px;color:#5b5650;background:var(--washi)}
+
+  /* konsole (Sumi) */
+  .kon{left:1010px;top:150px;width:760px;height:440px}
+  .kon pre{margin:0;padding:12px 14px;font:14px/1.45 var(--mono);white-space:pre}
+  .c-u{color:var(--s-foco)} .c-p{color:var(--s-ouro)} .c-d{color:#7FB0DB} .c-r{color:var(--s-sel)} .c-dim{color:#9c958a}
+  .cursor{background:var(--s-fg);color:var(--s-bg)}
+
+  /* ---- dock ---- */
+  .dock{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);height:72px;padding:0 14px;display:flex;align-items:center;gap:14px;
+        background:var(--washi);border:2px solid var(--sumi);box-shadow:5px 5px 0 rgba(43,42,40,.4);
+        clip-path:polygon(0 4px,4px 4px,4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px))}
+  .dock .ic{position:relative;width:48px;height:58px;display:grid;place-items:start center;padding-top:2px}
+  .dock .ic.run::after{content:"";position:absolute;bottom:0;left:18px;width:12px;height:4px;background:var(--torii)}
+  .dock .ic.ativo{background:var(--washi2)}
+  .dock .div{width:2px;height:44px;background:var(--washi3)}
+  .dock .tip{position:absolute;bottom:92px;left:calc(50% - 205px);font-family:var(--pixel);font-size:14px;background:var(--sumi);color:var(--washi);padding:4px 10px}
+</style>
+</head>
+<body>
+<div class="desk">
+
+  <div class="topo">
+    <div class="marca"><img class="px" src="../icons-src/lancador.svg" width="20" height="20" alt="">スタジオ</div>
+    <div class="sep"></div>
+    <div class="app">Kdenlive</div>
+    <div class="menu"><span>Arquivo</span><span>Editar</span><span>Exibir</span><span>Projeto</span></div>
+    <div class="desktops"><b class="on">一</b><b>二</b><b>三</b><b>四</b></div>
+    <div class="tray">
+      <!-- bandeja: ícones simbólicos (rede, volume, bateria) -->
+      <svg width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="1" y="11" width="3" height="4" fill="#2B2A28"/><rect x="6" y="7" width="3" height="8" fill="#2B2A28"/><rect x="11" y="3" width="3" height="12" fill="#2B2A28"/></svg>
+      <svg width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="1" y="6" width="3" height="4" fill="#2B2A28"/><rect x="4" y="4" width="2" height="8" fill="#2B2A28"/><rect x="6" y="2" width="2" height="12" fill="#2B2A28"/><rect x="10" y="5" width="2" height="6" fill="#2B2A28"/><rect x="13" y="3" width="2" height="10" fill="#2B2A28"/></svg>
+      <svg width="22" height="16" viewBox="0 0 22 16" shape-rendering="crispEdges"><rect x="1" y="3" width="18" height="10" fill="none" stroke="#2B2A28" stroke-width="2"/><rect x="19" y="6" width="2" height="4" fill="#2B2A28"/><rect x="4" y="6" width="10" height="4" fill="#6B8E4E"/></svg>
+      <div class="relogio">20:32 <small>金 06/11</small></div>
+    </div>
+  </div>
+
+  <div class="win w-washi dol">
+    <div class="tb"><img class="px" src="../icons-src/pasta.svg" width="16" height="16" alt=""><div class="t">Vídeos — Arquivos</div>
+      <span class="btn">_</span><span class="btn">□</span><span class="btn x">×</span></div>
+    <div class="corpo">
+      <div class="lado">
+        <h4>LOCAIS</h4>
+        <div>⌂ Pasta pessoal</div><div class="sel">▣ Vídeos</div><div>▤ Documentos</div><div>⇩ Downloads</div>
+        <h4>STUDIO</h4>
+        <div>◆ Ukiyo</div><div>◆ TikTok</div>
+      </div>
+      <div class="main">
+        <div class="cam">Vídeos › TikTok</div>
+        <div class="grade">
+          <div><img class="px" src="../icons-src/pasta.svg" width="64" height="64" alt=""><br>brutos</div>
+          <div class="sel"><img class="px" src="../icons-src/pasta.svg" width="64" height="64" alt=""><br>projetos</div>
+          <div><img class="px" src="../icons-src/pasta.svg" width="64" height="64" alt=""><br>exports</div>
+          <div><img class="px" src="../icons-src/pasta.svg" width="64" height="64" alt=""><br>testes</div>
+        </div>
+      </div>
+    </div>
+    <div class="status">4 pastas · 423 GB livres</div>
+  </div>
+
+  <div class="win w-sumi kon">
+    <div class="tb"><img class="px" src="../icons-src/terminal.svg" width="16" height="16" alt=""><div class="t">ukiyo : bash — Konsole</div>
+      <span class="btn">_</span><span class="btn">□</span><span class="btn x">×</span></div>
+<pre><span class="c-u">ukiyo@ukiyo</span> <span class="c-p">~/ukiyo</span> $ ls
+<span class="c-d">backups</span>  CLAUDE.md  <span class="c-d">config</span>  <span class="c-d">docs</span>  <span class="c-d">scripts</span>  <span class="c-d">themes</span>
+<span class="c-u">ukiyo@ukiyo</span> <span class="c-p">~/ukiyo</span> $ scripts/teste-codificadores.sh
+h264_vaapi      <span class="c-u">OK</span>     h264,High   300/300  rtime=1.07s
+hevc_vaapi      <span class="c-u">OK</span>     hevc,Main   300/300  rtime=0.95s
+av1_vaapi       <span class="c-r">FALHA</span>  Function not implemented
+<span class="c-dim"># comentário: texto secundário legível</span>
+<span class="c-u">ukiyo@ukiyo</span> <span class="c-p">~/ukiyo</span> $ <span class="cursor"> </span></pre>
+  </div>
+
+  <div class="dock">
+    <div class="ic run"><img class="px" src="../icons-src/pasta.svg" width="48" height="48" alt="Arquivos"></div>
+    <div class="ic run"><img class="px" src="../icons-src/navegador.svg" width="48" height="48" alt="Navegador"></div>
+    <div class="ic run"><img class="px" src="../icons-src/terminal.svg" width="48" height="48" alt="Terminal"></div>
+    <div class="div"></div>
+    <div class="ic"><img class="px" src="../icons-src/gravacao.svg" width="48" height="48" alt="OBS"></div>
+    <div class="ic run ativo"><img class="px" src="../icons-src/video.svg" width="48" height="48" alt="Kdenlive"></div>
+    <div class="ic"><img class="px" src="../icons-src/audio.svg" width="48" height="48" alt="Audacity"></div>
+    <div class="div"></div>
+    <div class="ic"><img class="px" src="../icons-src/config.svg" width="48" height="48" alt="Configurações"></div>
+    <div class="ic"><img class="px" src="../icons-src/sakura.svg" width="48" height="48" alt="Mostrar área de trabalho"></div>
+  </div>
+
+</div>
+</body>
+</html>

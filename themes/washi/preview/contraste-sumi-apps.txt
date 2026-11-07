@@ -1,0 +1,15 @@
+Sumi — contraste dos papéis usados por Konsole (interface) e Kdenlive
+menus/janelas: texto           #EDE6D6 sobre #24221F  12.76:1  AAA
+campos/listas: texto           #EDE6D6 sobre #1E1C1A  13.66:1  AAA
+botões: texto                  #EDE6D6 sobre #302D29  11.02:1  AAA
+cabeçalhos: texto              #EDE6D6 sobre #1B1A17  14.00:1  AAA
+texto secundário/inativo       #9C958A sobre #24221F   5.35:1  AA
+texto secundário em campos     #9C958A sobre #1E1C1A   5.73:1  AA
+seleção: texto sobre torii     #EDE6D6 sobre #B3263B   5.19:1  AA
+mensagem de erro (negativo)    #F0707F sobre #24221F   5.54:1  AA
+erro em campos                 #F0707F sobre #1E1C1A   5.93:1  AA
+aviso (neutro)                 #E3B65A sobre #24221F   8.39:1  AAA
+sucesso (positivo)             #8FB36F sobre #24221F   6.68:1  AA
+link                           #7FB0DB sobre #1E1C1A   7.39:1  AAA
+link visitado                  #C39BD3 sobre #1E1C1A   7.24:1  AAA
+dica (tooltip)                 #EDE6D6 sobre #302D29  11.02:1  AAA
