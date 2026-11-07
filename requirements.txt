@@ -1,0 +1,6 @@
+# Ambiente Python do projeto (.venv) — usado pelos geradores de papel de parede (scripts/pixelarte.py).
+# Instalar: scripts/preparar-ambiente.sh
+pillow==13.0.0
+numpy==2.5.4
+# Transcrição local do Henshū (editor/henshu/transcrever.py); modelo "small" baixado na 1ª vez (~460 MB, ~/.cache/huggingface)
+faster-whisper==1.2.1

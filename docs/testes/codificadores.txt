@@ -1,0 +1,9 @@
+h264_vaapi      OK     h264,High                    quadros/esperado=300/300  utime=2.170s stime=0.192s rtime=1.072s  17515KB  erros_decodificacao=0
+hevc_vaapi      OK     hevc,Main                    quadros/esperado=300/300  utime=2.235s stime=0.222s rtime=0.953s  12561KB  erros_decodificacao=0
+hevc10_vaapi    OK     hevc,Main 10                 quadros/esperado=300/300  utime=3.752s stime=0.323s rtime=1.870s  12598KB  erros_decodificacao=0
+vp9_vaapi       OK     vp9,Profile 0                quadros/esperado=300/300  utime=3.368s stime=0.285s rtime=2.233s  628KB  erros_decodificacao=0
+av1_vaapi       FALHA  [vost#0:0/av1_vaapi @ 0x55e0c82d3c40] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height. [vf#0:0 @ 0x55e0c82d9500] Error sending frames to consumers: Function not implemente
+h264_qsv        FALHA  [AVHWDeviceContext @ 0x563cfaefff00] Error creating a MFX session: -9. Device creation failed: -1313558101. 
+x264_veryfast   OK     h264,High                    quadros/esperado=300/300  utime=10.537s stime=0.379s rtime=1.426s  9440KB  erros_decodificacao=0
+x264_ultrafast  OK     h264,Constrained Baseline    quadros/esperado=300/300  utime=4.697s stime=0.235s rtime=0.815s  22112KB  erros_decodificacao=0
+Arquivos em: pasta temporária da sessão (apagada)

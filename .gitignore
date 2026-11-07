@@ -1,0 +1,50 @@
+# Backups de configurações do sistema (podem conter dados pessoais)
+backups/
+
+# Segredos e credenciais
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*token*
+credentials*
+.claude/settings.local.json
+
+# Mídia pesada (fica fora do git)
+*.mkv
+*.mp4
+*.mov
+*.webm
+*.wav
+*.flac
+*.mp3
+*.aac
+*.m4a
+renders/
+exports/
+proxies/
+*.kdenlive.bak
+*.kdenlive-autosave
+
+# Temporários
+*.tmp
+*.log
+*.swp
+*~
+__pycache__/
+.cache/
+
+# Capturas de tela (podem conter conteúdo pessoal)
+docs/visual/capturas/
+.venv/
+
+# Saídas geradas e material pessoal (não vão para o repositório público)
+renders/
+.henshu/
+# retrato das configurações pessoais do modo claro (caminhos e arquivos recentes do usuário)
+modos/claro/retrato-*/
+# widget gerado na instalação (embute o caminho absoluto do projeto)
+themes/washi/plasmoid/
+# prévias do login com o campo de senha preenchido
+themes/washi/preview/v5-login-preview*.png
