@@ -1,0 +1,284 @@
+{
+  "name": "TikTok Vertical",
+  "current_scene": "Vertical — Tela + Webcam",
+  "current_program_scene": "Vertical — Tela + Webcam",
+  "scene_order": [
+    {
+      "name": "Vertical — Tela + Webcam"
+    },
+    {
+      "name": "Vertical — Só Webcam"
+    },
+    {
+      "name": "Vertical — Só Tela"
+    }
+  ],
+  "sources": [
+    {
+      "id": "pipewire-screen-capture-source",
+      "name": "Tela (PipeWire)",
+      "settings": {
+        "ShowCursor": true
+      },
+      "uuid": "dc1f4a2d-d1e8-4297-a624-c8f71ac1560f",
+      "versioned_id": "pipewire-screen-capture-source",
+      "enabled": true,
+      "flags": 0,
+      "volume": 1.0,
+      "muted": false,
+      "filters": [],
+      "mixers": 255,
+      "sync": 0,
+      "monitoring_type": 0,
+      "private_settings": {}
+    },
+    {
+      "id": "v4l2_input",
+      "name": "Webcam",
+      "settings": {
+        "device_id": "/dev/video0",
+        "input": 0,
+        "pixelformat": 1196444237,
+        "resolution": 125830200,
+        "framerate": 65566,
+        "buffering": false,
+        "auto_reset": false
+      },
+      "uuid": "4e5e5811-9c64-4dbb-b6e6-b0eebf04872e",
+      "versioned_id": "v4l2_input",
+      "enabled": true,
+      "flags": 0,
+      "volume": 1.0,
+      "muted": false,
+      "filters": [],
+      "mixers": 255,
+      "sync": 0,
+      "monitoring_type": 0,
+      "private_settings": {}
+    },
+    {
+      "id": "scene",
+      "versioned_id": "scene",
+      "name": "Vertical — Tela + Webcam",
+      "uuid": "f369c6b5-9dc5-4dc3-b24b-88000ad210f9",
+      "enabled": true,
+      "flags": 0,
+      "volume": 1.0,
+      "muted": false,
+      "mixers": 0,
+      "filters": [],
+      "private_settings": {},
+      "settings": {
+        "id_counter": 2,
+        "custom_size": false,
+        "items": [
+          {
+            "name": "Tela (PipeWire)",
+            "source_uuid": "dc1f4a2d-d1e8-4297-a624-c8f71ac1560f",
+            "visible": true,
+            "locked": false,
+            "rot": 0.0,
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "scale": {
+              "x": 0.5625,
+              "y": 0.5625
+            },
+            "align": 5,
+            "bounds_type": 0,
+            "bounds_align": 0,
+            "bounds": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 1,
+            "group_item_backup": false,
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal"
+          },
+          {
+            "name": "Webcam",
+            "source_uuid": "4e5e5811-9c64-4dbb-b6e6-b0eebf04872e",
+            "visible": true,
+            "locked": false,
+            "rot": 0.0,
+            "pos": {
+              "x": 0,
+              "y": 608
+            },
+            "scale": {
+              "x": 1.2148148148148148,
+              "y": 1.2148148148148148
+            },
+            "align": 5,
+            "bounds_type": 0,
+            "bounds_align": 0,
+            "bounds": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "crop_left": 515,
+            "crop_top": 0,
+            "crop_right": 515,
+            "crop_bottom": 0,
+            "id": 2,
+            "group_item_backup": false,
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene",
+      "versioned_id": "scene",
+      "name": "Vertical — Só Webcam",
+      "uuid": "7e2b0e60-d824-42aa-9cd0-079a564c71cb",
+      "enabled": true,
+      "flags": 0,
+      "volume": 1.0,
+      "muted": false,
+      "mixers": 0,
+      "filters": [],
+      "private_settings": {},
+      "settings": {
+        "id_counter": 1,
+        "custom_size": false,
+        "items": [
+          {
+            "name": "Webcam",
+            "source_uuid": "4e5e5811-9c64-4dbb-b6e6-b0eebf04872e",
+            "visible": true,
+            "locked": false,
+            "rot": 0.0,
+            "pos": {
+              "x": 0,
+              "y": 0
+            },
+            "scale": {
+              "x": 1.7777777777777777,
+              "y": 1.7777777777777777
+            },
+            "align": 5,
+            "bounds_type": 0,
+            "bounds_align": 0,
+            "bounds": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "crop_left": 656,
+            "crop_top": 0,
+            "crop_right": 656,
+            "crop_bottom": 0,
+            "id": 1,
+            "group_item_backup": false,
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene",
+      "versioned_id": "scene",
+      "name": "Vertical — Só Tela",
+      "uuid": "2f40d79a-559d-473b-ad40-76e2a972586f",
+      "enabled": true,
+      "flags": 0,
+      "volume": 1.0,
+      "muted": false,
+      "mixers": 0,
+      "filters": [],
+      "private_settings": {},
+      "settings": {
+        "id_counter": 1,
+        "custom_size": false,
+        "items": [
+          {
+            "name": "Tela (PipeWire)",
+            "source_uuid": "dc1f4a2d-d1e8-4297-a624-c8f71ac1560f",
+            "visible": true,
+            "locked": false,
+            "rot": 0.0,
+            "pos": {
+              "x": 0,
+              "y": 656.25
+            },
+            "scale": {
+              "x": 0.5625,
+              "y": 0.5625
+            },
+            "align": 5,
+            "bounds_type": 0,
+            "bounds_align": 0,
+            "bounds": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "crop_left": 0,
+            "crop_top": 0,
+            "crop_right": 0,
+            "crop_bottom": 0,
+            "id": 1,
+            "group_item_backup": false,
+            "scale_filter": "disable",
+            "blend_method": "default",
+            "blend_type": "normal"
+          }
+        ]
+      }
+    }
+  ],
+  "groups": [],
+  "transitions": [],
+  "current_transition": "Fade",
+  "transition_duration": 300,
+  "DesktopAudioDevice1": {
+    "id": "pulse_output_capture",
+    "versioned_id": "pulse_output_capture",
+    "name": "Áudio do sistema",
+    "uuid": "9a7bbff2-dfe4-49c3-bfbf-fcdc17a77a95",
+    "settings": {
+      "device_id": "default"
+    },
+    "enabled": true,
+    "flags": 0,
+    "volume": 1.0,
+    "muted": false,
+    "mixers": 1,
+    "sync": 0,
+    "monitoring_type": 0,
+    "filters": [],
+    "private_settings": {}
+  },
+  "AuxAudioDevice1": {
+    "id": "pulse_input_capture",
+    "versioned_id": "pulse_input_capture",
+    "name": "Microfone",
+    "uuid": "6bf18aae-2ef1-423c-af8f-6c0366c6b7e8",
+    "settings": {
+      "device_id": "default"
+    },
+    "enabled": true,
+    "flags": 0,
+    "volume": 1.0,
+    "muted": false,
+    "mixers": 1,
+    "sync": 0,
+    "monitoring_type": 0,
+    "filters": [],
+    "private_settings": {}
+  },
+  "modules": {},
+  "preview_locked": false,
+  "scaling_enabled": false
+}
