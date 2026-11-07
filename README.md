@@ -53,6 +53,8 @@ na GPU em cerca de 2 segundos.
   numa tabela, queimadas no vídeo ou exportadas como `.srt`.
 - **Capítulos** do YouTube (o agente cria pelos assuntos falados), embutidos no MP4 e em texto para a descrição.
 - **Exportação** com áudio normalizado em −14 LUFS e vídeo codificado na GPU (VA-API).
+- **Abrir no Kdenlive** para ajuste fino: o projeto vira um `.kdenlive` com trilhas, cortes, velocidade, fades,
+  dissolver, reenquadramento, títulos, música e trilha de legendas (sem sobrescrever ajustes que você já fez lá).
 - **Segurança:** cada agente só mexe na pasta do vídeo aberto e nunca apaga os brutos; o Codex roda isolado e sem rede.
 
 <p align="center"><img src="docs/imagens/henshu-saida.jpg" alt="Quadros de um vídeo vertical exportado pelo Henshū, com legenda karaokê" width="90%"></p>

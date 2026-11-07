@@ -47,7 +47,7 @@ Scripts em `producao/` (FFmpeg com VA-API; nada de x264), comando `tiktok`. Past
 - [x] `tiktok limpar [dias] [--apagar]` (2026-11-07)
 **5c · Henshū 編集 — editor com chat (Claude/Codex)** (2026-11-07)
 - [x] Formato `projeto.json`, prévia automática na GPU, linha do tempo, chat com escolha de agente, exportação final
-- [ ] Abrir o projeto no Kdenlive para ajuste fino (verificar formato que o Kdenlive 24.12 importa)
+- [x] Abrir o projeto no Kdenlive para ajuste fino (2026-11-07) — verificado no Kdenlive 24.12.3; guias dos capítulos não aparecem (limitação)
 - [ ] Fonte pixel sem "ū" (DotGothic16 não tem o caractere): trocar por fonte com cobertura ou avisar
 **5b · Legendas automáticas** (2026-11-07, dentro do Henshū)
 - [x] Transcrição local (faster-whisper small, sem internet) — `henshu-transcrever` / botão Transcrever

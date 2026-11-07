@@ -4,7 +4,7 @@ Janela: prévia 9:16 + linha do tempo à esquerda, chat à direita. O agente edi
 o Henshū percebe a mudança, refaz a prévia na GPU e recarrega o player.
 Uso: henshu [pasta-do-vídeo]
 """
-import html, json, os, subprocess, sys, time
+import html, json, os, shutil, subprocess, sys, time
 from PySide6.QtCore import Qt, QTimer, QUrl, QProcess, QFileSystemWatcher, QRectF, Signal, QSize
 from PySide6.QtGui import QPainter, QColor, QFont, QPen, QBrush, QKeySequence, QShortcut, QAction, QIcon
 from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QSplitter, QVBoxLayout, QHBoxLayout, QLabel,
@@ -14,7 +14,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QSplitter, QV
 from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PySide6.QtMultimediaWidgets import QVideoWidget
 
-from . import projeto as P, render as R, agentes as A, legendas as L
+from . import projeto as P, render as R, agentes as A, legendas as L, kdenlive as K
 
 RAIZ = os.path.join(os.path.expanduser("~"), "Vídeos", "TikTok")
 PROJ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -176,7 +176,7 @@ class Janela(QMainWindow):
         self.cb_estilo.activated.connect(self.mudar_legendas); tb.addWidget(self.cb_estilo)
         a = QAction("Revisar legendas", self); a.triggered.connect(self.revisar_legendas); tb.addAction(a)
         tb.addSeparator()
-        for rot, fn in [("Exportar final", self.exportar), ("SRT e capítulos", self.exportar_textos)]:
+        for rot, fn in [("Exportar final", self.exportar), ("SRT e capítulos", self.exportar_textos), ("Abrir no Kdenlive", self.abrir_kdenlive)]:
             a = QAction(rot, self); a.triggered.connect(fn); tb.addAction(a)
         self.lbl_video = QLabel(""); self.lbl_video.setContentsMargins(16, 0, 0, 0); tb.addWidget(self.lbl_video)
 
@@ -385,6 +385,19 @@ class Janela(QMainWindow):
             self.statusBar().showMessage(msg.splitlines()[-1], 15000); self.chat.adicionar("", f"Exportação final {msg}", "sistema")
         pr.finished.connect(fim); self.proc_export = pr
         self.statusBar().showMessage("exportando a versão final (resolução cheia, −14 LUFS)…"); pr.start()
+
+    def abrir_kdenlive(self):
+        """Gera o projeto do Kdenlive a partir do projeto atual e o abre (para ajuste fino)."""
+        if not self.pasta: return
+        if not shutil.which("kdenlive"):
+            QMessageBox.warning(self, "Henshū", "O Kdenlive não está instalado (sudo apt install kdenlive)."); return
+        try: arq = K.exportar(self.pasta, P.carregar(self.pasta))
+        except P.ErroProjeto as e:
+            self.chat.adicionar("", str(e), "erro"); return
+        QProcess.startDetached("kdenlive", [arq])
+        extra = " (o .kdenlive anterior tinha ajustes seus e foi preservado)" if not arq.endswith(os.path.basename(self.pasta) + ".kdenlive") else ""
+        self.chat.adicionar("", f"Abrindo no Kdenlive: {os.path.relpath(arq, self.pasta)}{extra}. "
+                                "Mudanças feitas lá ficam só no Kdenlive; o projeto do Henshū continua como está.", "sistema")
 
     def exportar_textos(self):
         if not self.pasta: return

@@ -24,7 +24,7 @@
   vertical por padrão (ainda não usado num projeto real).
 - **Henshū 編集** (`henshu`, menu do KDE): editor com prévia + chat Claude/Codex; v2 com formatos vertical/horizontal,
   transcrição local (`henshu-transcrever`), legendas (frases/karaokê/pixel) revisáveis, reenquadrar, velocidade,
-  fade/dissolver, SRT e capítulos. Falta abrir no Kdenlive. Demo em `~/Vídeos/TikTok/2026-11-07_demo-henshu/`.
+  fade/dissolver, SRT e capítulos; botão "Abrir no Kdenlive" (verificado no 24.12.3). Demo em `~/Vídeos/TikTok/2026-11-07_demo-henshu/`.
 - **Ambiente Python:** `.venv/` com Pillow 13 e NumPy 2.5 (`scripts/preparar-ambiente.sh` recria).
 
 ## Pausado / aguardando o usuário

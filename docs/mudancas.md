@@ -681,3 +681,24 @@ com `kwriteconfig6 --notify --file kdeglobals --group Icons --key Theme washi-pi
 - Antes do envio: varredura de tokens, chaves, e-mail pessoal e caminhos `/home/<usuário>` em todo o histórico (0 achados).
 - O histórico git antigo (com o e-mail pessoal) ficou só no backup: `backups/2026-11-07-ukiyo-rebrand/git-antigo`.
 - Fluxo daqui em diante: commits só quando o usuário pedir; `git push` envia para `origin/main`.
+
+## 2026-11-07 — Henshū: "Abrir no Kdenlive"
+
+- **`editor/henshu/kdenlive.py`** (novo, só biblioteca padrão): gera `<vídeo>/<nome>.kdenlive` no formato clássico do
+  Kdenlive (documento 0.98, que o Kdenlive 24.x converte sozinho), com perfil vertical/horizontal, clipes com cortes,
+  velocidade (timewarp com tom preservado), volume, fades, dissolver (clipes alternados em V1/V2 + composição luma e
+  crossfade de áudio), "preencher" como efeito Transformar com o foco, títulos (kdenlivetitle) na trilha Textos, música
+  em loop com fade, e legendas (`<nome>.kdenlive.ass` + filtro `avfilter.subtitles`, que vira a trilha de legendas).
+- **Proteção:** um registro em `.henshu/kdenlive.json` guarda o hash de cada exportação; se você salvou ajustes no
+  `.kdenlive`, a próxima exportação vai para `<nome>-2.kdenlive` (nada é sobrescrito).
+- **Janela:** botão "Abrir no Kdenlive" (gera e abre).
+- **Verificado no Kdenlive 24.12.3**, abrindo projetos de teste numa área de trabalho vazia: ordem e tipo das trilhas,
+  velocidades `[200%]`/`[50%]`, fades, composições de dissolver, preencher, títulos, música e trilha de legendas.
+  Achados corrigidos durante o teste: a trilha de fundo precisa ser a playlist `black_track` com o produtor `black`
+  (senão o conteúdo das trilhas fica deslocado) e as legendas precisam do filtro na linha do tempo.
+- **Limitação conhecida:** as guias dos capítulos não aparecem no Kdenlive com este formato (testado em 0.98 e 1.0); os
+  capítulos seguem no MP4 exportado e em `export/<nome>_capitulos.txt`.
+- **Cuidado registrado:** encerrar o Kdenlive no meio do carregamento deixa `/tmp/kdenlivelock`, e ele oferece "restaurar
+  configurações". Não aceitar (apagaria os ajustes de proxy/perfil); basta apagar esse arquivo. Configuração do usuário
+  conferida intacta. Nenhum pacote novo instalado (o OpenTimelineIO testado foi removido do `.venv`).
+- **Desfazer:** apagar `editor/henshu/kdenlive.py` e o botão em `editor/henshu/app.py` (`abrir_kdenlive`).

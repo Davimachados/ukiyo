@@ -61,6 +61,7 @@ recomendada primeiro, marcada "(Recomendado)").
 | Redesenhar os papéis de parede | `scripts/gerar-papeis-de-parede.sh [id…]` (só gera PNGs; depois `modos/instalar-temas.sh`) |
 | Esteira de pós-produção (pasta por vídeo, importar, cortar pausas, exportar −14 LUFS) | `tiktok <novo\|importar\|silencios\|exportar\|limpar\|onde>` (`producao/tiktok.sh`) |
 | Editor com chat (Claude/Codex editam `projeto.json`, prévia ao vivo) | `henshu [pasta-do-vídeo]` (`editor/`) |
+| Gerar/abrir o projeto no Kdenlive (ajuste fino) | botão "Abrir no Kdenlive" ou `python3 -m henshu.kdenlive <pasta>` (em `editor/`) |
 | Transcrever falas e gerar legendas (local, faster-whisper) | `henshu-transcrever [pasta] [--so-legendas]` |
 | Medir travamento do KDE durante um comando | `modos/medir-travamento.py "comando"` |
 | Capacidades VA-API | `scripts/va-probe.py` |
@@ -79,7 +80,7 @@ determinísticos: rodar de novo produz o mesmo arquivo.
 - `modos/temas.conf`: **registro único dos temas** (lido por `trocar-tema.sh`, `instalar-temas.sh` e `gerar-papeis-de-parede.sh`)
 - `modos/`: troca de tema, pré-carregamento, atalhos `modo-*.sh` e o retrato salvo do modo claro (`modos/claro/`)
 - `producao/`: esteira de vídeo (`tiktok.sh`, link em `~/.local/bin/tiktok`); vídeos em `~/Vídeos/TikTok/<data>_<nome>/`
-- `editor/`: Henshū 編集 (PySide6 do Debian): `henshu/projeto.py` (formato), `render.py` (FFmpeg/VA-API), `agentes.py` (ponte `claude -p` / `codex exec --json`), `legendas.py` (ASS/SRT/capítulos), `transcrever.py` (faster-whisper, roda no `.venv`), `app.py` (janela)
+- `editor/`: Henshū 編集 (PySide6 do Debian): `henshu/projeto.py` (formato), `render.py` (FFmpeg/VA-API), `agentes.py` (ponte `claude -p` / `codex exec --json`), `legendas.py` (ASS/SRT/capítulos), `kdenlive.py` (exporta `.kdenlive`), `transcrever.py` (faster-whisper, roda no `.venv`), `app.py` (janela)
 - `scripts/`: utilitários (`pixelarte.py`, `va-probe.py`, preparação do ambiente, geração dos papéis de parede)
 - `themes/washi/`: tema base (claro), com geradores (`tools/`), prévias (`preview/`), scripts de aplicar/restaurar
   (`scripts/`), widget "Tela" (`tools/gerar-widget-tela.py`) e tema SDDM
