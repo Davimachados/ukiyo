@@ -1,0 +1,14 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "KPlugin": {
+    "Id": "org.ukiyo.spotify",
+    "Name": "Spotify · ukiyo",
+    "Description": "Capa, faixa e controles do Spotify com volume exclusivo do aplicativo",
+    "Icon": "multimedia-audio-player",
+    "Category": "Multimedia",
+    "Authors": [{"Name": "Davi"}],
+    "License": "GPL-2.0-or-later",
+    "Version": "1.0"
+  }
+}

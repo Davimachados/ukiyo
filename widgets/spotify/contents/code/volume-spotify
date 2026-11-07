@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Consulta/altera somente os streams de saída do Spotify, sem volume global ou microfone."""
+import json,subprocess,sys
+
+def streams():
+    r=subprocess.run(['pactl','--format=json','list','sink-inputs'],capture_output=True,text=True,timeout=3,check=True)
+    result=[]
+    for stream in json.loads(r.stdout):
+        props=stream.get('properties',{})
+        binary=props.get('application.process.binary','').lower().rsplit('/',1)[-1]
+        name=props.get('application.name','').lower()
+        appid=props.get('application.id','').lower()
+        if binary=='spotify' or name=='spotify' or appid in ('com.spotify.client','spotify'):
+            result.append(stream)
+    return result
+
+def level(stream):
+    return sum(float(v['value_percent'].strip('%')) for v in stream['volume'].values())/len(stream['volume'])
+
+def main():
+    action=sys.argv[1] if len(sys.argv)>1 else 'ler'
+    if action not in ('ler','definir'):raise ValueError('ação inválida')
+    target=None
+    if action=='definir':
+        target=int(sys.argv[2])
+        if not 0<=target<=100:raise ValueError('volume deve estar entre 0 e 100')
+    found=streams()
+    if target is not None:
+        for stream in found:
+            subprocess.run(['pactl','set-sink-input-volume',str(int(stream['index'])),f'{target}%'],check=True,timeout=3,capture_output=True)
+    print(json.dumps({'disponivel':bool(found),'volume':target if target is not None and found else round(level(found[0])) if found else 0}))
+if __name__=='__main__':
+    try:main()
+    except (ValueError,KeyError,IndexError,subprocess.SubprocessError,OSError,json.JSONDecodeError):
+        print(json.dumps({'disponivel':False,'volume':0,'erro':'Não foi possível acessar o volume do Spotify.'}))
+        sys.exit(1)
