@@ -14,6 +14,8 @@ credentials*
 # Mídia pesada (fica fora do git)
 *.mkv
 *.mp4
+# exceção: o vídeo de apresentação público do README
+!docs/video/*.mp4
 *.mov
 *.webm
 *.wav

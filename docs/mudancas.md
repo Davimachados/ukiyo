@@ -702,3 +702,27 @@ com `kwriteconfig6 --notify --file kdeglobals --group Icons --key Theme washi-pi
   configurações". Não aceitar (apagaria os ajustes de proxy/perfil); basta apagar esse arquivo. Configuração do usuário
   conferida intacta. Nenhum pacote novo instalado (o OpenTimelineIO testado foi removido do `.venv`).
 - **Desfazer:** apagar `editor/henshu/kdenlive.py` e o botão em `editor/henshu/app.py` (`abrir_kdenlive`).
+
+## 2026-11-07 — Vídeo promocional (55 s) para o repositório
+
+- **`producao/promo/`** (novo): `trilha.py` (chiptune original, 96 BPM, escala in-sen, NumPy), `capturar.sh` + `kw.py`
+  (capturas na área 4, movendo só janelas abertas pelo script, por PID), `renderizar.py` (motion graphics em camadas:
+  paralaxe 2,5D dos papéis de parede, partículas por tema, kanji em pixel, cartões 3D das capturas reais, tipografia
+  animada, transições em dissolve Bayer; codificação `h264_vaapi`) e `README.md` com o roteiro.
+- **Texto público e neutro** (sem "minha distro"): "Debian + KDE Plasma, redesenhado em pixel art", temas, troca em menos
+  de 1 s, Henshū (Claude ou Codex, transcrição local, legendas, Kdenlive), estúdio na GPU, "Código aberto · GPL-3.0" e o
+  endereço do repositório.
+- **Capturas:** telas dos cinco temas e janelas de demonstração (Henshū com a demo feita a partir dos papéis de parede,
+  Dolphin, Konsole com a esteira, widget Tela via `plasmawindowed`, Kdenlive com a demo) — todas conferidas, sem
+  conteúdo pessoal; janelas fechadas e tema claro restaurado ao final.
+- **Saída:** `renders/promo/ukiyo-promo.mp4` (1920×1080, 30 fps, 55 s, H.264 VA-API + AAC, −15 LUFS, 95 MB) e
+  `renders/promo/ukiyo-promo-web-720p.mp4` (9 MB, abaixo do limite de 10 MB do GitHub para vídeos no README), fora do git; insumos em
+  `renders/promo/insumos/`. Nenhuma configuração do sistema alterada.
+
+## 2026-11-07 — README em tom público e vídeo no topo
+
+- Texto de abertura e resumo em inglês sem primeira pessoa ("transforma um Debian com KDE Plasma…", "open-source …").
+- Banner refeito por `producao/promo/banner.py` com o subtítulo "Debian + KDE Plasma em pixel art · feito para criar vídeos".
+- Topo do README: prévia animada `docs/imagens/promo-preview.webp` (destaques, 800 px, 2,2 MB) com link para o vídeo
+  `docs/video/ukiyo-promo.mp4` (720p, 9 MB), que o GitHub toca na página do arquivo. O README não incorpora o MP4
+  diretamente porque o GitHub não toca vídeos do repositório dentro do README.
